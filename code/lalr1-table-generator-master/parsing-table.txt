@@ -1,0 +1,210 @@
+Indexed grammar rules (68 in total):
+0    $accept: program
+1    arguments: '(' parameter-list ')'
+2             | ''
+3    array-type: 'array' '[' 'CONSTANT' '..' 'CONSTANT' ']' 'of' standard-type
+4    compound-statement: 'begin' statement-list 'end'
+5    declaration-list: identifier-list ':' type ';'
+6                    | declaration-list identifier-list ':' type ';'
+7    declarations: 'var' declaration-list
+8                | ''
+9    elementary-statement: variable ':=' expression
+10                       | procedure-statement
+11                       | compound-statement
+12   expression: simple-expression
+13             | simple-expression '=' simple-expression
+14             | simple-expression '<>' simple-expression
+15             | simple-expression '<' simple-expression
+16             | simple-expression '<=' simple-expression
+17             | simple-expression '>=' simple-expression
+18             | simple-expression '>' simple-expression
+19   expression-list: expression
+20                  | expression-list ',' expression
+21   factor: variable
+22         | 'CONSTANT'
+23         | '(' expression ')'
+24         | function-reference
+25         | 'not' factor
+26   fucntion-reference: 'IDENTIFIER'
+27                     | 'IDENTIFIER' '(' expression-list ')'
+28   identifier-list: 'IDENTIFIER'
+29                  | identifier-list ',' 'IDENTIFIER'
+30   parameter-list: identifier-list ':' type
+31                 | parameter-list ':' identifier-list ':' type
+32   program: 'program' 'IDENTIFIER' '(' identifier-list ')' ';'
+33   restricted-statement: elementary-statement
+34                       | 'if' expression 'then' restricted-statement 'else' restricted-statement
+35                       | 'while' expression 'do' restricted-statement
+36   sign: '+'
+37       | '-'
+38   simple-expression: term
+39                    | sign term
+40                    | simple-expression '+' term
+41                    | simple-expression '-' term
+42                    | simple-expression 'or' term
+43                    | function-reference
+44                    | 'not' factor
+45   standard-type: 'integer'
+46                | 'real'
+47   statement: elementary-statement
+48            | 'if' expression 'then' restricted-statement 'else' statement
+49            | 'if' expression 'then' statement
+50            | 'while' expression 'do' statement
+51   statement-list: statement
+52                 | statement-list ';' statement
+53   subprogram-declaration: subprogram-head declarations compound-statement
+54   subprogram-declarations: subprogram-declarations subprogram-declaration
+55                          | ''
+56   subprogram-head: 'function' 'IDENTIFIER' arguments ':' 'result' standard-type ';'
+57                  | 'procedure' 'IDENTIFIER' arguments ';'
+58   term: factor
+59       | term 'mod' factor
+60       | term 'and' factor
+61       | term '*' factor
+62       | term '/' factor
+63       | term 'div' factor
+64   type: standard-type
+65       | array-type
+66   variable: 'IDENTIFIER'
+67           | 'IDENTIFIER' '(' expression-list ')'
+
+Grammar non-terminals (26 in total):
+	$accept
+	arguments
+	array-type
+	compound-statement
+	declaration-list
+	declarations
+	elementary-statement
+	expression
+	expression-list
+	factor
+	fucntion-reference
+	identifier-list
+	parameter-list
+	program
+	restricted-statement
+	sign
+	simple-expression
+	standard-type
+	statement
+	statement-list
+	subprogram-declaration
+	subprogram-declarations
+	subprogram-head
+	term
+	type
+	variable
+
+Grammar terminals (45 in total):
+	''
+	'('
+	')'
+	'*'
+	'+'
+	','
+	'-'
+	'..'
+	'/'
+	':'
+	':='
+	';'
+	'<'
+	'<='
+	'<>'
+	'='
+	'>'
+	'>='
+	'CONSTANT'
+	'IDENTIFIER'
+	'['
+	']'
+	'and'
+	'array'
+	'begin'
+	'div'
+	'do'
+	'else'
+	'end'
+	'function'
+	'if'
+	'integer'
+	'mod'
+	'not'
+	'of'
+	'or'
+	'procedure'
+	'program'
+	'real'
+	'result'
+	'then'
+	'var'
+	'while'
+	function-reference
+	procedure-statement
+
+PARSING TABLE SUMMARY
+Is the given grammar LALR(1)? Yes
+
+State 0
+	0    $accept: . program
+
+	for terminal 'program': shift and go to state 2
+
+	for non-terminal program: go to state 1
+
+State 1
+	0    $accept: program .
+
+	for terminal $end: accept 
+
+State 2
+	32   program: 'program' . 'IDENTIFIER' '(' identifier-list ')' ';'
+
+	for terminal 'IDENTIFIER': shift and go to state 3
+
+State 3
+	32   program: 'program' 'IDENTIFIER' . '(' identifier-list ')' ';'
+
+	for terminal '(': shift and go to state 4
+
+State 4
+	32   program: 'program' 'IDENTIFIER' '(' . identifier-list ')' ';'
+
+	for terminal 'IDENTIFIER': shift and go to state 6
+
+	for non-terminal identifier-list: go to state 5
+
+State 5
+	29   identifier-list: identifier-list . ',' 'IDENTIFIER'
+	32   program: 'program' 'IDENTIFIER' '(' identifier-list . ')' ';'
+
+	for terminal ')': shift and go to state 7
+	for terminal ',': shift and go to state 8
+
+State 6
+	28   identifier-list: 'IDENTIFIER' .
+
+	for terminal ')': reduce using rule 28
+	for terminal ',': reduce using rule 28
+
+State 7
+	32   program: 'program' 'IDENTIFIER' '(' identifier-list ')' . ';'
+
+	for terminal ';': shift and go to state 9
+
+State 8
+	29   identifier-list: identifier-list ',' . 'IDENTIFIER'
+
+	for terminal 'IDENTIFIER': shift and go to state 10
+
+State 9
+	32   program: 'program' 'IDENTIFIER' '(' identifier-list ')' ';' .
+
+	for terminal $end: reduce using rule 32
+
+State 10
+	29   identifier-list: identifier-list ',' 'IDENTIFIER' .
+
+	for terminal ')': reduce using rule 29
+	for terminal ',': reduce using rule 29

@@ -1,0 +1,12 @@
+ ,'','(',')','*','+',"','",'-','..','/',':',':=',';','<','<=','<>','=','>','>=','CONSTANT','IDENTIFIER','[',']','and','array','begin','div','do','else','end','function','if','integer','mod','not','of','or','procedure','program','real','result','then','var','while',function-reference,procedure-statement,$end,arguments,array-type,compound-statement,declaration-list,declarations,elementary-statement,expression,expression-list,factor,fucntion-reference,identifier-list,parameter-list,program,restricted-statement,sign,simple-expression,standard-type,statement,statement-list,subprogram-declaration,subprogram-declarations,subprogram-head,term,type,variable
+0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,s2,,,,,,,,,,,,,,,,,,,,,1,,,,,,,,,,,,
+1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,a,,,,,,,,,,,,,,,,,,,,,,,,,
+2,,,,,,,,,,,,,,,,,,,,s3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+3,,s4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+4,,,,,,,,,,,,,,,,,,,,s6,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5,,,,,,,,,,,,,,
+5,,,s7,,,s8,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+6,,,r28,,,r28,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+7,,,,,,,,,,,,s9,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+8,,,,,,,,,,,,,,,,,,,,s10,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+9,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,r32,,,,,,,,,,,,,,,,,,,,,,,,,
+10,,,r29,,,r29,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
